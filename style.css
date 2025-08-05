@@ -22,3 +22,60 @@
           linear-gradient(135deg, #0c0a1e 0%, #1a0b3d 50%, #0f0826 100%);
         animation: backgroundShift 20s ease-in-out infinite;
       }
+/* Floating geometric shapes */
+      .bg-shapes {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .shape {
+        position: absolute;
+        opacity: 0.1;
+        animation: float-shapes 15s infinite linear;
+      }
+
+      .shape:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(45deg, #6366f1, #00f2fe);
+        transform: rotate(45deg);
+        animation-delay: -5s;
+      }
+
+      .shape:nth-child(2) {
+        top: 60%;
+        right: 10%;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        border-radius: 50%;
+        animation-delay: -10s;
+      }
+
+      .shape:nth-child(3) {
+        bottom: 20%;
+        left: 20%;
+        width: 120px;
+        height: 60px;
+        background: linear-gradient(90deg, #4facfe, #00f2fe);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        animation-delay: -15s;
+      }
+
+      .shape:nth-child(4) {
+        top: 30%;
+        right: 30%;
+        width: 90px;
+        height: 90px;
+        background: linear-gradient(180deg, #667eea, #764ba2);
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        animation-delay: -20s;
+      }
