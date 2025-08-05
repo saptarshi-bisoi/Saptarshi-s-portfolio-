@@ -220,3 +220,89 @@
         transition: all 0.3s ease;
         backdrop-filter: var(--backdrop-blur);
       }
+  .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: var(--card-bg);
+        backdrop-filter: var(--backdrop-blur);
+        z-index: 1000;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: var(--gradient-1);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-color);
+        background: rgba(99, 102, 241, 0.1);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background: var(--accent-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-links a:hover::after {
+        width: 80%;
+      }
+
+      .theme-toggle {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        color: var(--text-primary);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+      }
