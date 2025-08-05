@@ -3,3 +3,22 @@
         padding: 0;
         box-sizing: border-box;
       }
+ /* Animated Background */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -3;
+        background: radial-gradient(
+            ellipse at 20% 50%,
+            #120a8f 0%,
+            transparent 50%
+          ),
+          radial-gradient(ellipse at 80% 20%, #6366f1 0%, transparent 50%),
+          radial-gradient(ellipse at 40% 80%, #1e1b4b 0%, transparent 50%),
+          linear-gradient(135deg, #0c0a1e 0%, #1a0b3d 50%, #0f0826 100%);
+        animation: backgroundShift 20s ease-in-out infinite;
+      }
