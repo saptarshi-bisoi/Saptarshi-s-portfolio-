@@ -966,23 +966,4 @@ section {
   position: relative;
   z-index: 2;
 }
- <section id="resume" class="fade-in">
-      <div class="container">
-        <h2 class="section-title">Resume</h2>
-        <div class="resume-content">
-          <p>
-            Preview my resume to learn more about my experience, education, and
-            achievements. I'm always open to new opportunities and exciting
-            projects!
-          </p>
-          <a
-            href="#"
-            class="download-button"
-            onclick="previewResume()"
-          >
-            <i class="fas fa-eye"></i>
-            <span>Preview Resume</span>
-          </a>
-        </div>
-      </div>
-    </section>
+
