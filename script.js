@@ -121,3 +121,5 @@ function handleSubmit(event) {
     `Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`
   );
 
+event.target.reset();
+}
