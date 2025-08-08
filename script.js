@@ -40,3 +40,10 @@ function previewResume() {
   );
 window.addEventListener("scroll", handleScrollAnimations);
 window.addEventListener("load", handleScrollAnimations);
+function createParticles() {
+  const particlesContainer = document.getElementById("particles");
+  const particleCount = 50;
+
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement("div");
+    particle.className = "particle";
