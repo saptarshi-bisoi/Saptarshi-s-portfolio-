@@ -74,3 +74,17 @@ function initScrollIndicator() {
         });
       }
     });
+ window.addEventListener("scroll", function () {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > 100) {
+        scrollIndicator.style.opacity = "0";
+        scrollIndicator.style.pointerEvents = "none";
+      } else {
+        scrollIndicator.style.opacity = "1";
+        scrollIndicator.style.pointerEvents = "auto";
+      }
+    });
+  }
+}
+  window.addEventListener("load", initScrollIndicator);
