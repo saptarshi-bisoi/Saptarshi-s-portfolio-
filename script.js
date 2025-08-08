@@ -38,3 +38,5 @@ function previewResume() {
     "https://drive.google.com/file/d/1jxBCKO7i1PZKH87BM4etOpfm6JDmomM7/view?usp=sharing",
     "_blank"
   );
+window.addEventListener("scroll", handleScrollAnimations);
+window.addEventListener("load", handleScrollAnimations);
