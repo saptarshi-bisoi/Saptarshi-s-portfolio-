@@ -60,3 +60,17 @@ const size = Math.random() * 4 + 2;
   }
 }
 window.addEventListener("load", createParticles);
+
+function initScrollIndicator() {
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener("click", function () {
+      const aboutSection = document.querySelector("#about");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
