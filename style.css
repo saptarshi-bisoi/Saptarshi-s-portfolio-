@@ -966,4 +966,55 @@ section {
   position: relative;
   z-index: 2;
 }
+.resume-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.resume-content p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--gradient-2);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+}
+
+.download-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.download-button:hover::before {
+  left: 100%;
+}
 
