@@ -59,3 +59,4 @@ const size = Math.random() * 4 + 2;
     particlesContainer.appendChild(particle);
   }
 }
+window.addEventListener("load", createParticles);
