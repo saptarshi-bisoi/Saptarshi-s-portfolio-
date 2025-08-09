@@ -1100,4 +1100,33 @@ section {
 .submit-button:hover::before {
   left: 100%;
 }
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--card-bg);
+  border-radius: 15px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  backdrop-filter: var(--backdrop-blur);
+}
+
+.social-link:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+}
 
