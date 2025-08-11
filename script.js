@@ -10,6 +10,7 @@ function toggleTheme() {
     themeIcon.className = "fas fa-sun";
   }
 }
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -22,6 +23,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
 function handleScrollAnimations() {
   const elements = document.querySelectorAll(".fade-in");
   elements.forEach((element) => {
@@ -33,13 +35,31 @@ function handleScrollAnimations() {
     }
   });
 }
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  alert(
+    `Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`
+  );
+
+  event.target.reset();
+}
+
 function previewResume() {
   window.open(
     "https://drive.google.com/file/d/1jxBCKO7i1PZKH87BM4etOpfm6JDmomM7/view?usp=sharing",
     "_blank"
   );
+}
+
 window.addEventListener("scroll", handleScrollAnimations);
 window.addEventListener("load", handleScrollAnimations);
+
 function createParticles() {
   const particlesContainer = document.getElementById("particles");
   const particleCount = 50;
@@ -47,10 +67,11 @@ function createParticles() {
   for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement("div");
     particle.className = "particle";
-    
-const size = Math.random() * 4 + 2;
+
+    const size = Math.random() * 4 + 2;
     particle.style.width = size + "px";
     particle.style.height = size + "px";
+
     particle.style.left = Math.random() * 100 + "%";
     particle.style.top = Math.random() * 100 + "%";
 
@@ -59,6 +80,7 @@ const size = Math.random() * 4 + 2;
     particlesContainer.appendChild(particle);
   }
 }
+
 window.addEventListener("load", createParticles);
 
 function initScrollIndicator() {
@@ -74,7 +96,7 @@ function initScrollIndicator() {
         });
       }
     });
- window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function () {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 100) {
@@ -87,7 +109,10 @@ function initScrollIndicator() {
     });
   }
 }
-  window.addEventListener("load", initScrollIndicator);
+
+
+window.addEventListener("load", initScrollIndicator);
+
 
 window.addEventListener("scroll", function () {
   const sections = document.querySelectorAll("section");
@@ -109,17 +134,3 @@ window.addEventListener("scroll", function () {
     }
   });
 });
-  
-function handleSubmit(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  alert(
-    `Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`
-  );
-
-event.target.reset();
-}
