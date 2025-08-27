@@ -1,3 +1,4 @@
+// Theme toggle functionality
 function toggleTheme() {
   const body = document.body;
   const themeIcon = document.getElementById("theme-icon");
@@ -11,6 +12,7 @@ function toggleTheme() {
   }
 }
 
+// Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -24,6 +26,7 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// Scroll animations
 function handleScrollAnimations() {
   const elements = document.querySelectorAll(".fade-in");
   elements.forEach((element) => {
@@ -36,6 +39,7 @@ function handleScrollAnimations() {
   });
 }
 
+// Contact form submission
 function handleSubmit(event) {
   event.preventDefault();
 
@@ -43,23 +47,29 @@ function handleSubmit(event) {
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
+  // Simulate form submission
   alert(
     `Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`
   );
 
+  // Reset form
   event.target.reset();
 }
 
+// Resume preview
 function previewResume() {
+  // Open resume in a new tab for preview
   window.open(
     "https://drive.google.com/file/d/1jxBCKO7i1PZKH87BM4etOpfm6JDmomM7/view?usp=sharing",
     "_blank"
   );
 }
 
+// Initialize scroll animations
 window.addEventListener("scroll", handleScrollAnimations);
 window.addEventListener("load", handleScrollAnimations);
 
+// Create particle system
 function createParticles() {
   const particlesContainer = document.getElementById("particles");
   const particleCount = 50;
@@ -68,21 +78,26 @@ function createParticles() {
     const particle = document.createElement("div");
     particle.className = "particle";
 
+    // Random size between 2-6px
     const size = Math.random() * 4 + 2;
     particle.style.width = size + "px";
     particle.style.height = size + "px";
 
+    // Random position
     particle.style.left = Math.random() * 100 + "%";
     particle.style.top = Math.random() * 100 + "%";
 
+    // Random animation delay
     particle.style.animationDelay = Math.random() * 8 + "s";
 
     particlesContainer.appendChild(particle);
   }
 }
 
+// Initialize particles
 window.addEventListener("load", createParticles);
 
+// Scroll indicator functionality
 function initScrollIndicator() {
   const scrollIndicator = document.querySelector(".scroll-indicator");
 
@@ -96,6 +111,8 @@ function initScrollIndicator() {
         });
       }
     });
+
+    // Hide scroll indicator when user scrolls down
     window.addEventListener("scroll", function () {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -110,10 +127,10 @@ function initScrollIndicator() {
   }
 }
 
-
+// Initialize scroll indicator
 window.addEventListener("load", initScrollIndicator);
 
-
+// Add active nav link highlighting
 window.addEventListener("scroll", function () {
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".nav-links a");
@@ -133,4 +150,12 @@ window.addEventListener("scroll", function () {
       link.classList.add("active");
     }
   });
+});
+
+// Footer: current year
+window.addEventListener("load", function () {
+  const yr = document.getElementById("current-year");
+  if (yr) {
+    yr.textContent = new Date().getFullYear();
+  }
 });
