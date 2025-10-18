@@ -461,7 +461,6 @@ body {
   backdrop-filter: var(--backdrop-blur);
   position: relative;
   z-index: 0;
-  padding-top: 80px;
 }
 
 .container {
