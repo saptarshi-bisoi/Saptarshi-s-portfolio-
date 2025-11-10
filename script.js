@@ -68,11 +68,12 @@ function handleSubmit(event) {
 
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject")?.value || "";
   const message = document.getElementById("message").value;
 
   // Simulate form submission
   alert(
-    `Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`
+    `Thank you, ${name}! Your message "${subject}" has been sent successfully. I'll get back to you soon at ${email}.`
   );
 
   // Reset form
@@ -246,11 +247,12 @@ function handleSubmit(event) {
 
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject")?.value || "";
   const message = document.getElementById("message").value;
 
   // Simulate form submission
   alert(
-    `Thank you, ${name}! Your message has been sent successfully. I'll get back to you soon at ${email}.`
+    `Thank you, ${name}! Your message "${subject}" has been sent successfully. I'll get back to you soon at ${email}.`
   );
 
   // Reset form

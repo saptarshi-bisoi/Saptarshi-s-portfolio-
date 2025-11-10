@@ -463,63 +463,112 @@
 
     <section id="contact" class="fade-in">
       <div class="container">
-        <h2 class="section-title">
-          Get In <span class="highlight-box">Touch</span>
-        </h2>
+        <div class="contact-header">
+          <div class="contact-subtitle">GET IN TOUCH</div>
+          <h2 class="contact-title">
+            LET'S BUILD <span class="contact-highlight">SOMETHING GREAT</span> TOGETHER
+          </h2>
+          <p class="contact-description">
+            Have a project in mind? I'm always open to discussing new opportunities and innovative ideas.
+          </p>
+        </div>
         <div class="contact-content">
-          <form class="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required />
+          <div class="contact-left">
+            <div class="cta-box">
+              <h3 class="cta-title">READY TO START YOUR PROJECT?</h3>
+              <p class="cta-description">Let's turn your ideas into reality with clean, scalable code.</p>
+              <a href="mailto:saptarshibisoi.official@gmail.com" class="cta-email-button">
+                <i class="fas fa-envelope"></i>
+                <span>EMAIL ME</span>
+              </a>
             </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required />
+            <div class="contact-info-box">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">EMAIL</div>
+                <div class="info-value">saptarshibisoi.official@gmail.com</div>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-              ></textarea>
+            <div class="contact-info-box">
+              <div class="info-icon">
+                <i class="fas fa-location-dot"></i>
+              </div>
+              <div class="info-content">
+                <div class="info-label">LOCATION</div>
+                <div class="info-value">India</div>
+              </div>
             </div>
-            <button type="submit" class="submit-button">Send Message</button>
-          </form>
-          <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/saptarshi-legend/"
-              class="social-link"
-              target="_blank"
-            >
-              <i class="fab fa-linkedin social-icon"></i>
-              <div>
-                <div>LinkedIn</div>
-                <small>Connect with me</small>
+            <div class="connect-section">
+              <div class="connect-label">CONNECT WITH ME</div>
+              <div class="social-icons">
+                <a
+                  href="https://www.linkedin.com/in/saptarshi-legend/"
+                  class="social-icon-link"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a
+                  href="https://github.com/saptarshi-bisoi"
+                  class="social-icon-link"
+                  target="_blank"
+                  aria-label="GitHub"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
               </div>
-            </a>
-            <a
-              href="https://github.com/saptarshi-bisoi"
-              class="social-link"
-              target="_blank"
-            >
-              <i class="fab fa-github social-icon"></i>
-              <div>
-                <div>GitHub</div>
-                <small>Check out my code</small>
+            </div>
+          </div>
+          <div class="contact-right">
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+              <div class="form-group">
+                <label for="name">NAME *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
               </div>
-            </a>
-            <a
-              href="mailto:saptarshibisoi.official@gmail.com"
-              class="social-link"
-            >
-              <i class="fas fa-envelope social-icon"></i>
-              <div>
-                <div>Email</div>
-                <small>saptarshibisoi.official@gmail.com</small>
+              <div class="form-group">
+                <label for="email">EMAIL *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                />
               </div>
-            </a>
+              <div class="form-group">
+                <label for="subject">SUBJECT *</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="What's this about?"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="message">MESSAGE *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="submit-button">
+                <i class="fas fa-paper-plane"></i>
+                <span>SEND MESSAGE</span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
