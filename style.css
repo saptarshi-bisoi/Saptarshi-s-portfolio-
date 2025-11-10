@@ -553,6 +553,50 @@ nav {
   box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
+/* Theme dropdown menu */
+.theme-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.theme-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  display: none;
+  min-width: 160px;
+  background: var(--secondary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+}
+
+.theme-menu.open .theme-dropdown {
+  display: block;
+}
+
+.theme-option {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--text-primary);
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.theme-option:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.theme-option.active {
+  background: rgba(148, 163, 184, 0.25);
+}
+
 /* Hero Section */
 .hero {
   height: 100vh;
