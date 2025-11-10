@@ -1,689 +1,570 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/astronaut.png"
-    />
-    <title>Saptarshi portfolio</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- Animated background elements -->
-    <div class="grid-overlay"></div>
-    <div class="bg-shapes">
-      <div class="shape"></div>
-      <div class="shape"></div>
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-    <div class="light-streaks">
-      <div class="light-streak"></div>
-      <div class="light-streak"></div>
-      <div class="light-streak"></div>
-      <div class="light-streak"></div>
-    </div>
-    <div class="tech-circuits">
-      <div class="circuit"></div>
-      <div class="circuit"></div>
-      <div class="circuit"></div>
-      <div class="circuit"></div>
-    </div>
-    <div class="particles" id="particles"></div>
 
-    <nav>
-      <div class="container">
-        <div class="nav-container">
-          <div class="logo">Saptarshi</div>
-          <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <div class="theme-menu">
-            <button class="theme-toggle" id="theme-toggle-btn" aria-haspopup="true" aria-expanded="false" aria-label="Toggle theme">
-              <i class="fas fa-moon" id="theme-icon"></i>
-            </button>
-            <div class="theme-dropdown" id="theme-dropdown" role="menu" aria-label="Theme">
-              <button class="theme-option" data-theme="light" role="menuitem">Light</button>
-              <button class="theme-option" data-theme="dark" role="menuitem">Dark</button>
-              <button class="theme-option" data-theme="system" role="menuitem">System</button>
-            </div>
-          </div>
-          <button class="mobile-menu-toggle">
-            <i class="fas fa-bars"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Open Graph Meta Tags for Link Preview -->
+  <meta property="og:title" content="Saptarshi Bisoi | Developer & Designer" />
+  <meta property="og:description"
+    content="Explore my portfolio – projects, designs, and ideas crafted with creativity and code!" />
+  <meta property="og:image" content="https://saptarshi-bisoi-portfolio.vercel.app/preview.png" />
+  <meta property="og:url" content="https://saptarshi-bisoi-portfolio.vercel.app/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Optional Twitter Preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Saptarshi Bisoi | Developer & Designer" />
+  <meta name="twitter:description" content="Explore my creative portfolio built with code and design." />
+  <meta name="twitter:image" content="https://saptarshi-bisoi-portfolio.vercel.app/preview.png" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/astronaut.png" />
+  <title>Saptarshi portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Animated background elements -->
+  <div class="grid-overlay"></div>
+  <div class="bg-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <div class="light-streaks">
+    <div class="light-streak"></div>
+    <div class="light-streak"></div>
+    <div class="light-streak"></div>
+    <div class="light-streak"></div>
+  </div>
+  <div class="tech-circuits">
+    <div class="circuit"></div>
+    <div class="circuit"></div>
+    <div class="circuit"></div>
+    <div class="circuit"></div>
+  </div>
+  <div class="particles" id="particles"></div>
+
+  <nav>
+    <div class="container">
+      <div class="nav-container">
+        <div class="logo">Saptarshi</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="theme-menu">
+          <button class="theme-toggle" id="theme-toggle-btn" aria-haspopup="true" aria-expanded="false"
+            aria-label="Toggle theme">
+            <i class="fas fa-moon" id="theme-icon"></i>
           </button>
+          <div class="theme-dropdown" id="theme-dropdown" role="menu" aria-label="Theme">
+            <button class="theme-option" data-theme="light" role="menuitem">Light</button>
+            <button class="theme-option" data-theme="dark" role="menuitem">Dark</button>
+            <button class="theme-option" data-theme="system" role="menuitem">System</button>
+          </div>
         </div>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Saptarshi's Space</h1>
-          <p>
-            Turning ideas into impact through innovative technology solutions
-          </p>
-          <a href="#projects" class="cta-button">
-            <span>View My Work</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-        </div>
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Saptarshi's Space</h1>
+        <p>
+          Turning ideas into impact through innovative technology solutions
+        </p>
+        <a href="#projects" class="cta-button">
+          <span>View My Work</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
-      <div class="scroll-indicator">
-        <div class="scroll-text">Scroll Down</div>
-        <div class="scroll-arrow">
-          <i class="fa-solid fa-computer-mouse"></i>
-        </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-text">Scroll Down</div>
+      <div class="scroll-arrow">
+        <i class="fa-solid fa-computer-mouse"></i>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="about" class="fade-in">
-      <div class="container">
-        <h2 class="section-title">
-          About <span class="highlight-box">Me</span>
-        </h2>
-        <div class="about-content">
-          <div class="about-image">
-            <img
-              src="./images/IMG-20231212-WA0061.jpg"
-              alt="Saptarshi photo"
-              style="
+  <section id="about" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">
+        About <span class="highlight-box">Me</span>
+      </h2>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="./images/IMG-20231212-WA0061.jpg" alt="Saptarshi photo" style="
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
                 object-fit: cover;
-              "
-            />
+              " />
+        </div>
+        <div class="about-text">
+          <h3>Tech Enthusiast & Problem Solver</h3>
+          <p>
+            Hello! I'm Saptarshi, a passionate technology enthusiast with a
+            love for creating innovative solutions that make a difference. I
+            believe in the power of code to transform ideas into reality and
+            am constantly exploring new technologies to stay at the forefront
+            of innovation.
+          </p>
+          <p>
+            When I'm not coding, you can find me exploring the latest tech
+            trends, contributing to open-source projects, or mentoring
+            aspiring developers. I'm driven by curiosity and the desire to
+            build products that have a positive impact on people's lives.
+          </p>
+          <div class="values">
+            <span class="value-tag">Innovation</span>
+            <span class="value-tag">Collaboration</span>
+            <span class="value-tag">Continuous Learning</span>
+            <span class="value-tag">Quality</span>
           </div>
-          <div class="about-text">
-            <h3>Tech Enthusiast & Problem Solver</h3>
-            <p>
-              Hello! I'm Saptarshi, a passionate technology enthusiast with a
-              love for creating innovative solutions that make a difference. I
-              believe in the power of code to transform ideas into reality and
-              am constantly exploring new technologies to stay at the forefront
-              of innovation.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">
+        Some of my <span class="highlight-box">Projects</span>
+      </h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fa-solid fa-dice"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Dice of Wisdom</h3>
+            <p class="project-description">
+              A fun, simple web app that delivers random quotes of wisdom
+              every time you roll the dice! Whether you're seeking inspiration
+              or just a bit of fun, this app is sure to brighten your day.
             </p>
-            <p>
-              When I'm not coding, you can find me exploring the latest tech
-              trends, contributing to open-source projects, or mentoring
-              aspiring developers. I'm driven by curiosity and the desire to
-              build products that have a positive impact on people's lives.
+            <div class="tech-stack">
+              <span class="tech-tag">Html5</span>
+              <span class="tech-tag">Css3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Advice Slip API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/saptarshi-bisoi/Dice-Of-Wisdom" class="project-link" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://dice-of-wisdom.vercel.app/" class="project-link" target="blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Age - Calculator</h3>
+            <p class="project-description">
+              Calculate your exact age in years, months, and days. Simple and
+              easy-to-use web tool.
             </p>
-            <div class="values">
-              <span class="value-tag">Innovation</span>
-              <span class="value-tag">Collaboration</span>
-              <span class="value-tag">Continuous Learning</span>
-              <span class="value-tag">Quality</span>
+            <div class="tech-stack">
+              <span class="tech-tag">Html5</span>
+              <span class="tech-tag">Css3</span>
+              <span class="tech-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/saptarshi-bisoi/Age--Calculator-" class="project-link" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://age-calculator-z66d.vercel.app/" class="project-link" target="blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">MediScan AI – Brain Tumor Detection</h3>
+            <p class="project-description">
+              An AI-powered web application that lets users upload MRI/CT
+              brain scan images and receive an AI-generated analysis for
+              potential brain tumor detection.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Html5</span>
+              <span class="tech-tag">Css3</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Google Gemini API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/saptarshi-bisoi/Mediscan-AI" class="project-link" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://mediscan-ai-tumor.vercel.app/" class="project-link" target="_blank">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-user-astronaut"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Portfolio</h3>
+            <p class="project-description">
+              This is a modern, interactive personal portfolio website
+              showcasing a tech enthusiast's skills, projects, and
+              professional background.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Html5</span>
+              <span class="tech-tag">Css3</span>
+              <span class="tech-tag">Javascript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/saptarshi-bisoi/Saptarshi-s-portfolio-" class="project-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://saptarshi-bisoi-portfolio.vercel.app/" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects" class="fade-in">
-      <div class="container">
-        <h2 class="section-title">
-          Some of my <span class="highlight-box">Projects</span>
-        </h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fa-solid fa-dice"></i>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Dice of Wisdom</h3>
-              <p class="project-description">
-                A fun, simple web app that delivers random quotes of wisdom
-                every time you roll the dice! Whether you're seeking inspiration
-                or just a bit of fun, this app is sure to brighten your day.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag">Html5</span>
-                <span class="tech-tag">Css3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Advice Slip API</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/saptarshi-bisoi/Dice-Of-Wisdom"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a
-                  href="https://dice-of-wisdom.vercel.app/"
-                  class="project-link"
-                  target="blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
+  <section id="skills" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">
+        These are my explored
+        <span class="highlight-box purple">Technologies</span>
+      </h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-html5"></i>
           </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fa-solid fa-calculator"></i>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Age - Calculator</h3>
-              <p class="project-description">
-                Calculate your exact age in years, months, and days. Simple and
-                easy-to-use web tool.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag">Html5</span>
-                <span class="tech-tag">Css3</span>
-                <span class="tech-tag">JavaScript</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/saptarshi-bisoi/Age--Calculator-"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a
-                  href="https://age-calculator-z66d.vercel.app/"
-                  class="project-link"
-                  target="blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fas fa-brain"></i>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">MediScan AI – Brain Tumor Detection</h3>
-              <p class="project-description">
-                An AI-powered web application that lets users upload MRI/CT
-                brain scan images and receive an AI-generated analysis for
-                potential brain tumor detection.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag">Html5</span>
-                <span class="tech-tag">Css3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Google Gemini API</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/saptarshi-bisoi/Mediscan-AI"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a
-                  href="https://mediscan-ai-tumor.vercel.app/"
-                  class="project-link"
-                  target="_blank"
-                >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <i class="fas fa-user-astronaut"></i>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Portfolio</h3>
-              <p class="project-description">
-                This is a modern, interactive personal portfolio website
-                showcasing a tech enthusiast's skills, projects, and
-                professional background.
-              </p>
-              <div class="tech-stack">
-                <span class="tech-tag">Html5</span>
-                <span class="tech-tag">Css3</span>
-                <span class="tech-tag">Javascript</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://github.com/saptarshi-bisoi/Saptarshi-s-portfolio-"
-                  class="project-link"
-                >
-                  <i class="fab fa-github"></i> GitHub
-                </a>
-                <a
-                  href="https://saptarshi-bisoi-portfolio.vercel.app/"
-                  class="project-link"
-                >
-                  <i class="fas fa-external-link-alt"></i> Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
+          <div class="skill-name">HTML5</div>
         </div>
-      </div>
-    </section>
-
-    <section id="skills" class="fade-in">
-      <div class="container">
-        <h2 class="section-title">
-          These are my explored
-          <span class="highlight-box purple">Technologies</span>
-        </h2>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-html5"></i>
-            </div>
-            <div class="skill-name">HTML5</div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-css3-alt"></i>
           </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-css3-alt"></i>
-            </div>
-            <div class="skill-name">CSS3</div>
+          <div class="skill-name">CSS3</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-js"></i>
           </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-js"></i>
-            </div>
-            <div class="skill-name">JavaScript</div>
-          </div>
-          <!-- <div class="skill-item">
+          <div class="skill-name">JavaScript</div>
+        </div>
+        <!-- <div class="skill-item">
             <div class="skill-icon">
               <i class="fab fa-react"></i>
             </div>
             <div class="skill-name">React</div>
           </div> -->
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-css3-alt"></i>
-            </div>
-            <div class="skill-name">Tailwind CSS</div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-css3-alt"></i>
           </div>
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-python"></i>
-            </div>
-            <div class="skill-name">Python</div>
+          <div class="skill-name">Tailwind CSS</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-python"></i>
           </div>
-          <!-- <div class="skill-item">
+          <div class="skill-name">Python</div>
+        </div>
+        <!-- <div class="skill-item">
             <div class="skill-icon">
               <i class="fas fa-database"></i>
             </div>
             <div class="skill-name">MongoDB</div>
           </div> -->
-          <div class="skill-item">
-            <div class="skill-icon">
-              <i class="fab fa-git-alt"></i>
+        <div class="skill-item">
+          <div class="skill-icon">
+            <i class="fab fa-git-alt"></i>
+          </div>
+          <div class="skill-name">Git</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">
+        My Work <span class="highlight-box">Experience</span>
+      </h2>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <div class="experience-logo">
+            <img src="./images/techtribeicvp_logo.jpeg" alt="TechTribe Logo" class="company-logo" />
+          </div>
+          <div class="experience-content">
+            <div class="experience-header">
+              <h3 class="company-name">TechTribe</h3>
+              <span class="role">Tech lead</span>
             </div>
-            <div class="skill-name">Git</div>
+            <div class="employment-type">Part-time</div>
+            <div class="experience-duration">Jul 2025 - Present (2 mos)</div>
+            <p class="experience-description">
+              Served as the Technical Lead, responsible for all technical
+              aspects and ensuring the smooth execution of the event.
+            </p>
+            <div class="experience-image">
+              <img src="./images/TechTeam.jpg" alt="TechTribe Team" class="team-image" />
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-logo">
+            <img src="./images/open_source_connect_logo.jpeg" alt="Open Source Connect Logo" class="company-logo" />
+          </div>
+          <div class="experience-content">
+            <div class="experience-header">
+              <h3 class="company-name">Open Source Connect</h3>
+              <span class="role">Contributor</span>
+            </div>
+            <div class="employment-type">Part-time</div>
+            <div class="experience-duration">Aug 2025 - Present (1 mo)</div>
+            <div class="experience-location">India · Remote</div>
+            <p class="experience-description">
+              Contributing to the open source projects and learning new
+              Technologies 🚀
+            </p>
+            <div class="experience-images">
+              <img src="./images/OSCI Contributor NexFellow Banner.png" alt="OSCI Banner"
+                class="experience-thumbnail" />
+              <img src="./images/OSCI Contributor ID Card.png" alt="OSCI Badges" class="experience-thumbnail" />
+            </div>
+          </div>
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-logo">
+            <img src="./images/ardentinternships_logo.jpeg" alt="ARDENT COMPUTECH Logo" class="company-logo" />
+          </div>
+          <div class="experience-content">
+            <div class="experience-header">
+              <h3 class="company-name">ARDENT COMPUTECH PVT LTD</h3>
+              <span class="role">Internship Trainee</span>
+            </div>
+            <div class="employment-type">Internship</div>
+            <div class="experience-duration">Jul 2024 - Aug 2024 (2 mos)</div>
+            <p class="experience-description">project leader</p>
+            <div class="skills-achievements">
+              <i class="fas fa-gem"></i>
+              <span>Front-End Development</span>
+            </div>
+            <div class="experience-image">
+              <img src="./images/CERTIFICATE Intern.jpg" alt="Certificate" class="certificate-image" />
+              <span class="certificate-text">CERTIFICATE</span>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="experience" class="fade-in">
-      <div class="container">
-        <h2 class="section-title">
-          My Work <span class="highlight-box">Experience</span>
+  <section id="resume" class="fade-in">
+    <div class="container">
+      <h2 class="section-title">
+        My <span class="highlight-box">Resume</span>
+      </h2>
+      <div class="resume-content">
+        <p>
+          Preview my resume to learn more about my experience, education, and
+          achievements. I'm always open to new opportunities and exciting
+          projects!
+        </p>
+        <a href="#" class="download-button" onclick="previewResume()">
+          <i class="fas fa-eye"></i>
+          <span>Preview Resume</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <div class="container">
+      <div class="contact-header">
+        <div class="contact-subtitle">GET IN TOUCH</div>
+        <h2 class="contact-title">
+          LET'S BUILD <span class="contact-highlight">SOMETHING GREAT</span> TOGETHER
         </h2>
-        <div class="experience-grid">
-          <div class="experience-card">
-            <div class="experience-logo">
-              <img
-                src="./images/techtribeicvp_logo.jpeg"
-                alt="TechTribe Logo"
-                class="company-logo"
-              />
-            </div>
-            <div class="experience-content">
-              <div class="experience-header">
-                <h3 class="company-name">TechTribe</h3>
-                <span class="role">Tech lead</span>
-              </div>
-              <div class="employment-type">Part-time</div>
-              <div class="experience-duration">Jul 2025 - Present (2 mos)</div>
-              <p class="experience-description">
-                Served as the Technical Lead, responsible for all technical
-                aspects and ensuring the smooth execution of the event.
-              </p>
-              <div class="experience-image">
-                <img
-                  src="./images/TechTeam.jpg"
-                  alt="TechTribe Team"
-                  class="team-image"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="experience-card">
-            <div class="experience-logo">
-              <img
-                src="./images/open_source_connect_logo.jpeg"
-                alt="Open Source Connect Logo"
-                class="company-logo"
-              />
-            </div>
-            <div class="experience-content">
-              <div class="experience-header">
-                <h3 class="company-name">Open Source Connect</h3>
-                <span class="role">Contributor</span>
-              </div>
-              <div class="employment-type">Part-time</div>
-              <div class="experience-duration">Aug 2025 - Present (1 mo)</div>
-              <div class="experience-location">India · Remote</div>
-              <p class="experience-description">
-                Contributing to the open source projects and learning new
-                Technologies 🚀
-              </p>
-              <div class="experience-images">
-                <img
-                  src="./images/OSCI Contributor NexFellow Banner.png"
-                  alt="OSCI Banner"
-                  class="experience-thumbnail"
-                />
-                <img
-                  src="./images/OSCI Contributor ID Card.png"
-                  alt="OSCI Badges"
-                  class="experience-thumbnail"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="experience-card">
-            <div class="experience-logo">
-              <img
-                src="./images/ardentinternships_logo.jpeg"
-                alt="ARDENT COMPUTECH Logo"
-                class="company-logo"
-              />
-            </div>
-            <div class="experience-content">
-              <div class="experience-header">
-                <h3 class="company-name">ARDENT COMPUTECH PVT LTD</h3>
-                <span class="role">Internship Trainee</span>
-              </div>
-              <div class="employment-type">Internship</div>
-              <div class="experience-duration">Jul 2024 - Aug 2024 (2 mos)</div>
-              <p class="experience-description">project leader</p>
-              <div class="skills-achievements">
-                <i class="fas fa-gem"></i>
-                <span>Front-End Development</span>
-              </div>
-              <div class="experience-image">
-                <img
-                  src="./images/CERTIFICATE Intern.jpg"
-                  alt="Certificate"
-                  class="certificate-image"
-                />
-                <span class="certificate-text">CERTIFICATE</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="contact-description">
+          Have a project in mind? I'm always open to discussing new opportunities and innovative ideas.
+        </p>
       </div>
-    </section>
-
-    <section id="resume" class="fade-in">
-      <div class="container">
-        <h2 class="section-title">
-          My <span class="highlight-box">Resume</span>
-        </h2>
-        <div class="resume-content">
-          <p>
-            Preview my resume to learn more about my experience, education, and
-            achievements. I'm always open to new opportunities and exciting
-            projects!
-          </p>
-          <a href="#" class="download-button" onclick="previewResume()">
-            <i class="fas fa-eye"></i>
-            <span>Preview Resume</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="fade-in">
-      <div class="container">
-        <div class="contact-header">
-          <div class="contact-subtitle">GET IN TOUCH</div>
-          <h2 class="contact-title">
-            LET'S BUILD <span class="contact-highlight">SOMETHING GREAT</span> TOGETHER
-          </h2>
-          <p class="contact-description">
-            Have a project in mind? I'm always open to discussing new opportunities and innovative ideas.
-          </p>
-        </div>
-        <div class="contact-content">
-          <div class="contact-left">
-            <div class="cta-box">
-              <h3 class="cta-title">READY TO START YOUR PROJECT?</h3>
-              <p class="cta-description">Let's turn your ideas into reality with clean, scalable code.</p>
-              <a href="mailto:saptarshibisoi.official@gmail.com" class="cta-email-button">
-                <i class="fas fa-envelope"></i>
-                <span>EMAIL ME</span>
+      <div class="contact-content">
+        <div class="contact-left">
+          <div class="cta-box">
+            <h3 class="cta-title">READY TO START YOUR PROJECT?</h3>
+            <p class="cta-description">Let's turn your ideas into reality with clean, scalable code.</p>
+            <a href="mailto:saptarshibisoi.official@gmail.com" class="cta-email-button">
+              <i class="fas fa-envelope"></i>
+              <span>EMAIL ME</span>
+            </a>
+          </div>
+          <div class="contact-info-box">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">EMAIL</div>
+              <div class="info-value">saptarshibisoi.official@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-info-box">
+            <div class="info-icon">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <div class="info-content">
+              <div class="info-label">LOCATION</div>
+              <div class="info-value">India</div>
+            </div>
+          </div>
+          <div class="connect-section">
+            <div class="connect-label">CONNECT WITH ME</div>
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/saptarshi-legend/" class="social-icon-link" target="_blank"
+                aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/saptarshi-bisoi" class="social-icon-link" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
               </a>
             </div>
-            <div class="contact-info-box">
-              <div class="info-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="info-content">
-                <div class="info-label">EMAIL</div>
-                <div class="info-value">saptarshibisoi.official@gmail.com</div>
-              </div>
-            </div>
-            <div class="contact-info-box">
-              <div class="info-icon">
-                <i class="fas fa-location-dot"></i>
-              </div>
-              <div class="info-content">
-                <div class="info-label">LOCATION</div>
-                <div class="info-value">India</div>
-              </div>
-            </div>
-            <div class="connect-section">
-              <div class="connect-label">CONNECT WITH ME</div>
-              <div class="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/saptarshi-legend/"
-                  class="social-icon-link"
-                  target="_blank"
-                  aria-label="LinkedIn"
-                >
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a
-                  href="https://github.com/saptarshi-bisoi"
-                  class="social-icon-link"
-                  target="_blank"
-                  aria-label="GitHub"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-              </div>
-            </div>
           </div>
-          <div class="contact-right">
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-              <div class="form-group">
-                <label for="name">NAME *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">EMAIL *</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="subject">SUBJECT *</label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  placeholder="What's this about?"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="message">MESSAGE *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  placeholder="Tell me about your project..."
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="submit-button">
-                <i class="fas fa-paper-plane"></i>
-                <span>SEND MESSAGE</span>
-              </button>
-            </form>
-          </div>
+        </div>
+        <div class="contact-right">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">NAME *</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">EMAIL *</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">SUBJECT *</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" required />
+            </div>
+            <div class="form-group">
+              <label for="message">MESSAGE *</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                required></textarea>
+            </div>
+            <button type="submit" class="submit-button">
+              <i class="fas fa-paper-plane"></i>
+              <span>SEND MESSAGE</span>
+            </button>
+          </form>
         </div>
       </div>
-    </section>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <h3 class="footer-brand">Saptarshi</h3>
-            <p class="footer-desc">
-              Full Stack Developer passionate about crafting dynamic web
-              applications and seamless user experiences. Available for
-              full‑time roles & freelance projects.
-            </p>
-            <div class="footer-socials">
-              <a
-                href="https://github.com/saptarshi-bisoi"
-                target="_blank"
-                aria-label="GitHub"
-                class="footer-social"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/saptarshi-legend/"
-                target="_blank"
-                aria-label="LinkedIn"
-                class="footer-social"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/saptarshi.valid/"
-                target="_blank"
-                aria-label="Instagram"
-                class="footer-social"
-                ><i class="fab fa-instagram"></i
-              ></a>
-              <a
-                href="https://x.com/saptarshiBisoi"
-                target="_blank"
-                aria-label="X"
-                class="footer-social"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                href="mailto:saptarshibisoi.official@gmail.com"
-                aria-label="Email"
-                class="footer-social"
-                ><i class="fas fa-envelope"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="footer-col">
-            <h4 class="footer-title">Quick Links</h4>
-            <ul class="footer-links">
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4 class="footer-title">Get In Touch</h4>
-            <ul class="footer-contact">
-              <li>
-                <span class="contact-icon"
-                  ><i class="fas fa-envelope"></i
-                ></span>
-                <div class="contact-text">
-                  <div class="contact-label">Email</div>
-                  <a
-                    class="contact-value"
-                    href="mailto:saptarshibisoi.official@gmail.com"
-                    >saptarshibisoi.official@gmail.com</a
-                  >
-                </div>
-              </li>
-              <li>
-                <span class="contact-icon"
-                  ><i class="fas fa-location-dot"></i
-                ></span>
-                <div class="contact-text">
-                  <div class="contact-label">Location</div>
-                  <span class="contact-value">West Bengal, India</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>
-            © <span id="current-year"></span> Saptarshi Bisoi. All rights
-            reserved.
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-brand">Saptarshi</h3>
+          <p class="footer-desc">
+            Full Stack Developer passionate about crafting dynamic web
+            applications and seamless user experiences. Available for
+            full‑time roles & freelance projects.
           </p>
-          <div class="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <span class="dot">•</span>
-            <a href="#">Terms of Service</a>
+          <div class="footer-socials">
+            <a href="https://github.com/saptarshi-bisoi" target="_blank" aria-label="GitHub" class="footer-social"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/saptarshi-legend/" target="_blank" aria-label="LinkedIn"
+              class="footer-social"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/saptarshi.valid/" target="_blank" aria-label="Instagram"
+              class="footer-social"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/saptarshiBisoi" target="_blank" aria-label="X" class="footer-social"><i
+                class="fab fa-twitter"></i></a>
+            <a href="mailto:saptarshibisoi.official@gmail.com" aria-label="Email" class="footer-social"><i
+                class="fas fa-envelope"></i></a>
           </div>
         </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-title">Get In Touch</h4>
+          <ul class="footer-contact">
+            <li>
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <div class="contact-text">
+                <div class="contact-label">Email</div>
+                <a class="contact-value"
+                  href="mailto:saptarshibisoi.official@gmail.com">saptarshibisoi.official@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <span class="contact-icon"><i class="fas fa-location-dot"></i></span>
+              <div class="contact-text">
+                <div class="contact-label">Location</div>
+                <span class="contact-value">West Bengal, India</span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="current-year"></span> Saptarshi Bisoi. All rights
+          reserved.
+        </p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <span class="dot">•</span>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
 </html>
