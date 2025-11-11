@@ -1,8 +1,7 @@
-/* Font Awesome: imported so icons remain available when the separate <link> is removed.
-   This keeps the full Font Awesome rules loaded via the main stylesheet.
-   The actual Font Awesome CSS file remains at assets/css/fontawesome.min.css (unchanged).
+/* Font Awesome: loaded as a separate file (assets/css/fontawesome.min.css).
+  Loading it separately allows independent caching of the library and webfonts.
+  Keep `assets/css/icons-backup.css` in the repo as a backup of the original file.
 */
-@import url('assets/css/fontawesome.min.css');
 
 * {
   margin: 0;
