@@ -1261,9 +1261,9 @@ section {
 /* Skills Section */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 2rem;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -1278,6 +1278,11 @@ section {
   backdrop-filter: var(--backdrop-blur);
   position: relative;
   overflow: hidden;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .skill-item::before {
@@ -1324,6 +1329,9 @@ section {
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  width: 100%;
+  line-height: 1.4;
+  margin-top: 0.5rem;
 }
 
 /* Experience Section */
