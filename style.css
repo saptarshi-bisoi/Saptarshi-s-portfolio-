@@ -1261,7 +1261,7 @@ section {
 /* Skills Section */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 2rem;
   max-width: 900px;
   margin: 0 auto;
@@ -1321,6 +1321,9 @@ section {
   text-align: center;
   position: relative;
   z-index: 2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 /* Experience Section */
@@ -2065,7 +2068,7 @@ section {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 1.2rem;
   }
 
@@ -2358,7 +2361,7 @@ section {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   }
 
   .projects-grid {
