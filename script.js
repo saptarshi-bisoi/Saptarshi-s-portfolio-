@@ -45,6 +45,8 @@ window.addEventListener('load', function () {
   // apply saved theme
   const saved = localStorage.getItem('theme');
   if (saved === 'light') document.body.setAttribute('data-theme','light');
+  // Reveal sections that use scroll animations by default
+  document.querySelectorAll('.fade-in').forEach((el) => el.classList.add('visible'));
 });
 
 // Minimal form handler (if contact form exists)
