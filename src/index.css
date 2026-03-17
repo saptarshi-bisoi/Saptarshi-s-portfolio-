@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/* ── Dark Detective Dossier — Design System ──────────── */
+@theme {
+  --color-bg: #0a0c10; /* Deep charcoal/navy */
+  --color-bg-light: #12151c;
+  --color-bg-card: #161a22;
+  --color-parchment: #f5f1e8;
+  --color-parchment-dark: #e8e0d0;
+  --color-red: #b23a3a;
+  --color-red-light: #d44a4a;
+  --color-gold: #c8a44d;
+  --color-gold-dim: rgba(200, 164, 77, 0.2);
+  --color-border-gold: rgba(200, 164, 77, 0.25);
+  --color-blue: #2f5f8f;
+  --color-text-light: #e8e0d0;
+  --color-text-dim: rgba(232, 224, 208, 0.5);
+  --color-text-dark: #2a2a2a;
+  --color-border: rgba(200, 164, 77, 0.15);
+
+  --font-heading: 'Playfair Display', 'DM Serif Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Special Elite', 'Courier Prime', monospace;
+
+  --shadow-glow: 0 0 20px rgba(200, 164, 77, 0.15);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --radius: 8px;
+}
+
+/* Cinematic Dossier Utilities */
+.dossier-glow {
+  background: radial-gradient(circle at center, rgba(200,164,77,0.1) 0%, transparent 70%);
+}
+
+.letter-shortcut {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  padding: 1px 4px;
+  border: 1px solid var(--color-border-gold);
+  border-radius: 3px;
+  margin-left: 8px;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+/* ── Reset ────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text-light);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Subtle grain texture via noise */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dim);
+  border-radius: 3px;
+}
+
+/* ── Parchment Card ──────────────────────────────────── */
+.card {
+  background: var(--color-parchment);
+  color: var(--color-text-dark);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+
+/* ── Section ─────────────────────────────────────────── */
+.section-pad {
+  padding: 6rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header .section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.section-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-text-light);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.section-header h2 .accent {
+  color: var(--color-gold);
+}
+
+.section-header .section-desc {
+  color: var(--color-text-dim);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0.75rem auto 0;
+  line-height: 1.6;
+}
+
+/* ── Stamp ────────────────────────────────────────────── */
+.stamp {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.55rem;
+  padding: 3px 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.stamp-solved {
+  color: #2e7d32;
+  border: 1.5px solid #2e7d32;
+  background: rgba(46, 125, 50, 0.08);
+}
+
+
+.stamp-progress {
+  color: var(--color-blue);
+  border: 1.5px solid var(--color-blue);
+  background: rgba(47, 95, 143, 0.1);
+}
+
+
+/* ── Case label ──────────────────────────────────────── */
+.case-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(200, 164, 77, 0.1);
+  padding: 4px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--color-gold-dim);
+  display: inline-block;
+}
+
+/* ── Button ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: var(--color-gold);
+  color: var(--color-bg);
+  border-color: var(--color-gold);
+}
+
+.btn-gold:hover {
+  background: #d4b05a;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-light);
+  border-color: var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+/* ── Smooth Scroll (Lenis) ────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+
+/* ── Gold line divider ───────────────────────────────── */
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background: var(--color-gold);
+  margin: 0 auto;
+  opacity: 0.4;
+}
