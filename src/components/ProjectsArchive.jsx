@@ -66,6 +66,162 @@ const fadeIn = (delay = 0) => ({
     transition: { delay, duration: 0.6, ease: "easeOut" },
 });
 
+const ArchiveButton = () => {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        setIsClicked(true);
+        setTimeout(() => {
+            window.open('https://github.com/saptarshi-bisoi', '_blank');
+            setIsClicked(false);
+        }, 900);
+    };
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '6rem', marginBottom: '2rem' }}>
+            {/* Terminal Label */}
+            <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.65rem',
+                color: 'rgba(232, 224, 208, 0.4)',
+                letterSpacing: '0.2em',
+                marginBottom: '1rem',
+                textTransform: 'uppercase',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
+            }}>
+                <span style={{ display: 'inline-block', width: '8px', height: '8px', background: 'rgba(200, 170, 100, 0.5)', borderRadius: '50%' }}></span>
+                ARCHIVE ACCESS TERMINAL
+            </div>
+            <motion.button
+                onClick={handleClick}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+                style={{
+                    position: 'relative',
+                    background: '#161210', // Dark base matching section bg
+                    border: '1px solid rgba(200, 170, 100, 0.2)', // Faint border highlight
+                    borderRadius: '6px', // Slightly rounded edges
+                    padding: '1.2rem 2.5rem',
+                    cursor: 'pointer',
+                    overflow: 'hidden',
+                    boxShadow: isHovered 
+                        ? '0 10px 30px rgba(200, 170, 100, 0.1), inset 0 2px 10px rgba(200, 170, 100, 0.05)'
+                        : '0 4px 15px rgba(0, 0, 0, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.02)', // Soft inner shadow
+                    outline: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    minWidth: '340px',
+                }}
+            >
+                {/* Horizontal scan line on hover */}
+                {isHovered && !isClicked && (
+                    <motion.div
+                        initial={{ top: '-10%', opacity: 0 }}
+                        animate={{ top: '110%', opacity: [0, 0.5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: 'linear' }}
+                        style={{
+                            position: 'absolute',
+                            left: 0,
+                            right: 0,
+                            height: '2px',
+                            background: 'linear-gradient(90deg, transparent, rgba(200, 170, 100, 0.6), transparent)',
+                            boxShadow: '0 0 8px rgba(200, 170, 100, 0.5)',
+                            zIndex: 1,
+                            pointerEvents: 'none',
+                        }}
+                    />
+                )}
+
+                <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '16px', 
+                    position: 'relative', 
+                    zIndex: 2,
+                    opacity: isClicked ? 0 : 1,
+                    transition: 'opacity 0.2s'
+                }}>
+                    {/* Lock Icon */}
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(200, 170, 100, 0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                        <span style={{ 
+                            fontFamily: 'var(--font-mono)', 
+                            fontSize: '1rem', 
+                            color: 'rgba(232, 224, 208, 0.9)', 
+                            letterSpacing: '0.1em',
+                            fontWeight: 'bold'
+                        }}>
+                            ACCESS HIDDEN INVESTIGATION ARCHIVE →
+                        </span>
+                        <span style={{ 
+                            fontFamily: 'var(--font-mono)', 
+                            fontSize: '0.7rem', 
+                            color: 'rgba(200, 170, 100, 0.6)', 
+                            letterSpacing: '0.05em',
+                            marginTop: '4px',
+                            textTransform: 'uppercase'
+                        }}>
+                            Access extended case archive
+                        </span>
+                    </div>
+                </div>
+
+                {/* Click Interaction Feedback */}
+                {isClicked && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        style={{ 
+                            position: 'absolute', 
+                            inset: 0, 
+                            display: 'flex', 
+                            flexDirection: 'column',
+                            justifyContent: 'center', 
+                            alignItems: 'center',
+                            background: 'rgba(22, 18, 16, 0.95)',
+                            zIndex: 3
+                        }}
+                    >
+                        <motion.span 
+                            animate={{ opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 0.8, repeat: Infinity }}
+                            style={{ 
+                                fontFamily: 'var(--font-mono)', 
+                                color: 'rgba(200, 170, 100, 0.9)', 
+                                fontSize: '0.85rem',
+                                letterSpacing: '0.15em',
+                                fontWeight: 'bold'
+                            }}
+                        >
+                            ACCESSING ARCHIVE...
+                        </motion.span>
+                        <span style={{ 
+                            fontFamily: 'var(--font-mono)', 
+                            color: 'rgba(232, 224, 208, 0.5)', 
+                            fontSize: '0.65rem',
+                            letterSpacing: '0.1em',
+                            marginTop: '8px'
+                        }}>
+                            REDIRECTING TO GITHUB
+                        </span>
+                    </motion.div>
+                )}
+            </motion.button>
+        </div>
+    );
+};
+
 export default function ProjectsArchive() {
     const [particles] = useState(() => Array.from({ length: 15 }).map((_, i) => ({
         id: i,
@@ -257,6 +413,9 @@ export default function ProjectsArchive() {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Cinematic Archive Button */}
+                <ArchiveButton />
             </div>
 
             {/* Injected CSS for hover effects */}
