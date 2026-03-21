@@ -79,6 +79,19 @@ export default function Navbar() {
                             </span>
                         </a>
                     ))}
+                    {/* Design Portfolio External Link */}
+                    <a href="https://saptarshi-designer.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        className="navbar-link"
+                        style={{
+                            fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 'bold', letterSpacing: '0.05em', color: 'var(--color-bg)',
+                            background: 'var(--color-gold)', padding: '6px 16px', borderRadius: '100px', textDecoration: 'none', display: 'flex', alignItems: 'center',
+                            marginLeft: '12px', transition: 'all 0.3s', boxShadow: '0 0 10px rgba(200,164,77,0.2)'
+                        }}
+                        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 5px 15px rgba(200,164,77,0.5)'; }}
+                        onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 0 10px rgba(200,164,77,0.2)'; }}
+                    >
+                        DESIGN PORTFOLIO <i className="fas fa-external-link-alt" style={{ marginLeft: '6px', fontSize: '0.7rem' }} />
+                    </a>
                 </div>
 
                 {/* Contact/Dispatch Button */}
@@ -125,6 +138,17 @@ export default function Navbar() {
                                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', opacity: 0.4 }}>[{l.label.charAt(0)}]</span>
                             </a>
                         ))}
+                        
+                        {/* Mobile Design Portfolio Link */}
+                        <a href="https://saptarshi-designer.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
+                            style={{
+                                display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '14px 1.5rem',
+                                fontFamily: 'var(--font-mono)', fontSize: '0.85rem', fontWeight: 'bold', color: 'var(--color-bg)',
+                                background: 'var(--color-gold)', textDecoration: 'none', borderTop: '1px solid rgba(0,0,0,0.2)'
+                            }}
+                        >
+                            DESIGN PORTFOLIO <i className="fas fa-external-link-alt" style={{ marginLeft: '8px', fontSize: '0.8rem' }} />
+                        </a>
                     </motion.div>
                 )}
             </AnimatePresence>
