@@ -119,7 +119,7 @@ export default function Navbar() {
                         exit={{ opacity: 0, scale: 0.95, y: -10 }}
                         style={{
                             position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)',
-                            width: '240px', background: 'var(--color-bg)', border: '1px solid var(--color-border-gold)',
+                            width: '90vw', maxWidth: '300px', background: 'var(--color-bg)', border: '1px solid var(--color-border-gold)',
                             borderRadius: '12px', marginTop: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-card)',
                             zIndex: 101, pointerEvents: 'auto'
                         }}

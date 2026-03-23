@@ -67,7 +67,7 @@ export default function FieldInvestigations() {
 
                 <div style={{ 
                     display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', 
                     gap: '40px',
                     alignItems: 'start'
                 }}>
@@ -165,7 +165,7 @@ export default function FieldInvestigations() {
                         <div style={{ background: '#000', height: '100%' }}>
                             <img src={selected.img} alt={selected.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                         </div>
-                        <div style={{ padding: '3rem', color: 'var(--color-text-dark)', position: 'relative' }}>
+                        <div className="mission-detail-content" style={{ padding: '3rem', color: 'var(--color-text-dark)', position: 'relative' }}>
                             <button 
                                 onClick={() => setSelected(null)}
                                 style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', fontSize: '1.2rem', cursor: 'pointer', color: 'rgba(0,0,0,0.3)' }}
@@ -211,6 +211,7 @@ export default function FieldInvestigations() {
                     div[style*="gridTemplateColumns: minmax(300px, 1fr) 1fr"] {
                         grid-template-columns: 1fr !important;
                     }
+                    .mission-detail-content { padding: 1.5rem !important; }
                 }
             `}</style>
         </section>

@@ -82,6 +82,7 @@ function CaseDetailPanel({ selectedNode, onClose }) {
                     exit={{ scale: 0.9, y: 20, opacity: 0 }}
                     transition={{ type: 'spring', damping: 20, stiffness: 300 }}
                     onClick={e => e.stopPropagation()}
+                    className="case-detail-modal"
                     style={{
                         width: '100%', maxWidth: '500px',
                         background: '#0d1117',
@@ -645,7 +646,7 @@ export default function EvidenceLocker() {
             </motion.div>
 
             {/* ── Constellation Stage (With Parallax) ── */}
-            <motion.div style={{
+            <motion.div className="constellation-stage" style={{
                 position:'relative',
                 width:'100%',
                 maxWidth:1100,
@@ -694,6 +695,13 @@ export default function EvidenceLocker() {
                 />
                 <span>{NODES.length} EVIDENCE NODES ACTIVE — CONSTELLATION MAPPED</span>
             </motion.div>
+
+            <style>{`
+                @media (max-width: 768px) {
+                    .constellation-stage { transform: scale(0.65) !important; transform-origin: center center !important; height: 50vh !important; }
+                    .case-detail-modal { padding: 1.5rem !important; margin: 1rem !important; }
+                }
+            `}</style>
         </section>
     );
 }

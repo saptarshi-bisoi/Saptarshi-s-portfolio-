@@ -285,7 +285,7 @@ export default function ProjectsArchive() {
                 </motion.div>
 
                 {/* Grid of Case Files */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '3rem 2rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: '3rem 2rem' }}>
                     {cases.map((c, i) => (
                         <motion.div
                             key={c.id}
@@ -418,10 +418,13 @@ export default function ProjectsArchive() {
                 <ArchiveButton />
             </div>
 
-            {/* Injected CSS for hover effects */}
+            {/* Injected CSS for hover effects and mobile padding */}
             <style>{`
                 .case-file-card:hover .hover-stamp {
                     opacity: 1 !important;
+                }
+                @media (max-width: 640px) {
+                    .case-file-card { padding: 1.5rem 1rem 1rem !important; }
                 }
             `}</style>
         </section>

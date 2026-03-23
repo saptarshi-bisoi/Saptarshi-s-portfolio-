@@ -194,7 +194,7 @@ export default function InvestigationHistory() {
                     }} />
 
                     {/* The Animated Draw Line */}
-                    <motion.div style={{
+                    <motion.div className="timeline-draw-line" style={{
                         position: 'absolute',
                         left: '50%',
                         marginLeft: '-1px',
@@ -223,14 +223,14 @@ export default function InvestigationHistory() {
 
             <style>{`
                 @media (max-width: 768px) {
-                    .timeline-line-bg { left: 40px !important; margin-left: 0 !important; }
+                    .timeline-line-bg, .timeline-draw-line { left: 40px !important; margin-left: 0 !important; }
                     .timeline-card-wrapper { 
                         width: 100% !important; 
                         padding-left: 70px !important;
                         justify-content: flex-start !important;
                     }
                     .timeline-node { left: 40px !important; margin-left: -9px !important; }
-                    .timeline-card { width: 100% !important; }
+                    .timeline-card { width: 100% !important; padding: 1.2rem !important; }
                 }
             `}</style>
         </section>
