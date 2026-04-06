@@ -7,7 +7,7 @@ import SmoothScroll from './components/SmoothScroll'
 
 import MissionTracker from './components/MissionTracker'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect, lazy, Suspense, useRef } from 'react'
 import IntroSequence from './components/IntroSequence'
 
 // Basic lazy loading to reduce main bundle size and improve LCP/FCP
@@ -21,6 +21,32 @@ const Education = lazy(() => import('./components/Education'))
 
 // Simple invisible placeholder to maintain layout structure during Suspense load
 const SectionFallback = () => <div style={{ minHeight: '100vh', background: 'var(--color-bg)' }} />
+
+// Wrapper to only render and request chunks when scrolled near them
+const LazySection = ({ children }) => {
+    const ref = useRef(null)
+    const [isVisible, setIsVisible] = useState(false)
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                    observer.disconnect()
+                }
+            },
+            { rootMargin: '600px' }
+        )
+        if (ref.current) observer.observe(ref.current)
+        return () => observer.disconnect()
+    }, [])
+
+    return (
+        <div ref={ref} style={{ minHeight: isVisible ? 'auto' : '100vh' }}>
+            {isVisible ? <Suspense fallback={<SectionFallback />}>{children}</Suspense> : <SectionFallback />}
+        </div>
+    )
+}
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(() => {
@@ -53,33 +79,33 @@ export default function App() {
             <Navbar />
             <Hero />
             
-            <Suspense fallback={<SectionFallback />}>
+            <LazySection>
                 <ClassifiedFile />
-            </Suspense>
+            </LazySection>
             
-            <Suspense fallback={<SectionFallback />}>
+            <LazySection>
                 <ProjectsArchive />
-            </Suspense>
+            </LazySection>
             
-            <Suspense fallback={<SectionFallback />}>
+            <LazySection>
                 <EvidenceLocker />
-            </Suspense>
+            </LazySection>
             
-            <Suspense fallback={<SectionFallback />}>
+            <LazySection>
                 <InvestigationHistory />
-            </Suspense>
+            </LazySection>
             
-            <Suspense fallback={<SectionFallback />}>
+            <LazySection>
                 <FieldInvestigations />
-            </Suspense>
+            </LazySection>
             
-            <Suspense fallback={<SectionFallback />}>
+            <LazySection>
                 <CinematicCaseFiles />
-            </Suspense>
+            </LazySection>
             
-            <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
+            <LazySection>
                 <Education />
-            </Suspense>
+            </LazySection>
             
             <Contact />
             <Footer />
