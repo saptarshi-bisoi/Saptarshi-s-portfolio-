@@ -81,6 +81,7 @@ function DevFestCarousel({ images }) {
                     key={current}
                     src={images[current]}
                     alt={`DevFest photo ${current + 1}`}
+                    loading="lazy"
                     initial={{ opacity: 0, scale: 1.06 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
@@ -232,7 +233,7 @@ export default function FieldInvestigations() {
                                 {m.carousel ? (
                                     <DevFestCarousel images={m.carousel} />
                                 ) : (
-                                    <img src={m.img} alt={m.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.1) contrast(1.1)' }} />
+                                    <img src={m.img} alt={m.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'sepia(0.1) contrast(1.1)' }} />
                                 )}
                             </div>
 
@@ -301,7 +302,7 @@ export default function FieldInvestigations() {
                                     setIndex={setLightboxIndex}
                                 />
                             ) : (
-                                <img src={selected.img} alt={selected.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <img src={selected.img} alt={selected.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             )}
                         </div>
 
@@ -378,6 +379,7 @@ function LightboxCarousel({ images, index, setIndex }) {
                     key={index}
                     src={images[index]}
                     alt={`Evidence ${index + 1}`}
+                    loading="lazy"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -30 }}
@@ -416,7 +418,7 @@ function LightboxCarousel({ images, index, setIndex }) {
                             transition: 'opacity 0.2s, border 0.2s', borderRadius: '2px', flexShrink: 0
                         }}
                     >
-                        <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                        <img src={src} alt="" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                     </div>
                 ))}
             </div>

@@ -337,7 +337,7 @@ function TimelineItem({ mission, index, onImageClick }) {
                             padding: '4px',
                             border: '1px solid rgba(255,255,255,0.1)'
                         }}>
-                            <img src={mission.logo} alt="Organization Logo" style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 0.8, filter: 'grayscale(30%)' }} />
+                            <img src={mission.logo} alt="Organization Logo" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'contain', opacity: 0.8, filter: 'grayscale(30%)' }} />
                         </div>
                         <div>
                             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', fontWeight: 'bold', color: 'rgba(200, 164, 77, 0.7)', letterSpacing: '2px', display: 'block', marginBottom: '2px' }}>
@@ -414,6 +414,7 @@ function TimelineItem({ mission, index, onImageClick }) {
                         <motion.img
                             src={mission.image}
                             alt="Visual Evidence"
+                            loading="lazy"
                             variants={{
                                 hover: { filter: 'contrast(1.05) sepia(0) brightness(1)' } // Reveal details
                             }}

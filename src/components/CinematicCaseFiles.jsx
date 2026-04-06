@@ -94,7 +94,7 @@ export default function CinematicCaseFiles() {
                                     borderRadius: '4px',
                                     overflow: 'hidden'
                                 }}>
-                                    <img src={f.img} alt={f.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <img src={f.img} alt={f.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     <div style={{
                                         position: 'absolute', bottom: 0, left: 0, right: 0,
                                         padding: '20px', background: 'linear-gradient(transparent, rgba(0,0,0,0.9))'
@@ -194,7 +194,7 @@ export default function CinematicCaseFiles() {
                                 <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.5rem', color: 'var(--color-text-light)', marginBottom: '2rem' }}>CASE FILE: {selected.title}</h2>
 
                                 <div style={{ width: '100%', height: '300px', borderRadius: '4px', overflow: 'hidden', marginBottom: '2rem', border: '1px solid var(--color-border)' }}>
-                                    <img src={selected.img} alt={selected.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <img src={selected.img} alt={selected.title} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </div>
 
                                 <div style={{ fontFamily: 'var(--font-mono)', borderTop: '1px solid var(--color-border)', paddingTop: '2rem' }}>
