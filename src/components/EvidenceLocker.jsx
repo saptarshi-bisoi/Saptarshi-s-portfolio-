@@ -27,7 +27,7 @@ const FLOAT_CONFIGS = NODES.map((_, i) => ({
     dur: 5 + (i % 5) * 1.4,
 }));
 
-const DUST = Array.from({ length: 65 }, (_, i) => ({
+const getDust = (isMobile) => Array.from({ length: isMobile ? 15 : 65 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -429,84 +429,23 @@ function ConstellationLines({ activated }) {
     );
 }
 
-// ─── Init Overlay ────────────────────────────────────────
-function InitOverlay({ onDone }) {
-    const [step, setStep] = useState(0);
-    const lines = [
-        'SYSTEM INITIALIZING...',
-        'ESTABLISHING FORENSIC DATALINKS',
-        'VERIFYING NODE INTEGRITY',
-        'SYSTEM READY',
-    ];
-    useEffect(() => {
-        if (step < lines.length) {
-            setTimeout(() => setStep(s => s + 1), 480);
-        } else {
-            setTimeout(onDone, 300);
-        }
-    }, [step, lines.length, onDone]);
-
-    return (
-        <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7 }}
-            style={{
-                position:'absolute', inset:0, zIndex:60,
-                display:'flex', flexDirection:'column',
-                alignItems:'center', justifyContent:'center',
-                background: 'rgba(4,6,10,0.95)',
-                gap:'0.55rem',
-                fontFamily:'var(--font-mono)',
-                backdropFilter:'blur(4px)',
-            }}
-        >
-            <motion.div
-                animate={{ scale:[0.3,2.5], opacity:[0.5,0] }}
-                transition={{ duration:2.5, repeat:Infinity, ease:'easeOut' }}
-                style={{
-                    position:'absolute',
-                    width:200, height:200,
-                    borderRadius:'50%',
-                    border:'1px solid rgba(56,189,248,0.5)',
-                    left:'50%', top:'50%',
-                    transform:'translate(-50%,-50%)',
-                    pointerEvents:'none',
-                }}
-            />
-            {lines.slice(0, step).map((line, i) => (
-                <motion.div
-                    key={i}
-                    initial={{ opacity:0, x:-12 }}
-                    animate={{ opacity:1, x:0 }}
-                    transition={{ duration:0.3 }}
-                    style={{
-                        fontSize: i === 0 ? '0.95rem' : '0.62rem',
-                        color: i === 0 ? '#38bdf8' : 'rgba(200,164,77,0.65)',
-                        letterSpacing: i === 0 ? '0.3em' : '0.18em',
-                        textTransform:'uppercase',
-                        textShadow: i === 0 ? '0 0 18px rgba(56,189,248,0.8)' : 'none',
-                    }}
-                >
-                    {i === 0 ? `▶ ${line}` : `  › ${line}`}
-                </motion.div>
-            ))}
-            <motion.span
-                animate={{ opacity:[1,0,1] }}
-                transition={{ duration:0.7, repeat:Infinity }}
-                style={{ color:'#38bdf8', fontSize:'1rem', marginTop:'0.3rem' }}
-            >_</motion.span>
-        </motion.div>
-    );
-}
 
 // ─── Main Export ─────────────────────────────────────────
 export default function EvidenceLocker() {
     const sectionRef = useRef(null);
     const isInView  = useInView(sectionRef, { once:true, margin:'-100px' });
-    const [initialized, setInitialized] = useState(false);
     const [activated,   setActivated]   = useState(false);
     const [selectedNode, setSelectedNode] = useState(null);
+    const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 768);
+    const [dustParticles, setDustParticles] = useState([]);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize();
+        setDustParticles(getDust(window.innerWidth < 768));
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     // Global Parallax Drift
     const mouseX = useMotionValue(0);
@@ -519,10 +458,8 @@ export default function EvidenceLocker() {
     const stageY = useTransform(smoothY, value => value * -0.02);
 
     useEffect(() => {
-        if (isInView && !initialized) setInitialized(true);
-    }, [isInView, initialized]);
-
-    const handleInitDone = () => setActivated(true);
+        if (isInView && !activated) setActivated(true);
+    }, [isInView, activated]);
 
     const handleGlobalMouseMove = (e) => {
         if (!sectionRef.current) return;
@@ -597,7 +534,7 @@ export default function EvidenceLocker() {
 
             {/* ── Dust Particles ── */}
             <div style={{ position:'absolute', inset:0, pointerEvents:'none', zIndex:1 }}>
-                {DUST.map(p => (
+                {dustParticles.map(p => (
                     <motion.div
                         key={p.id}
                         animate={{ opacity:[0,0.8,0], y:[`${p.y}%`, `${p.y-10}%`] }}
@@ -605,18 +542,13 @@ export default function EvidenceLocker() {
                         style={{
                             position:'absolute', left:`${p.x}%`, top:`${p.y}%`,
                             width:p.s, height:p.s, borderRadius:'50%',
-                            background:p.col, filter:'blur(1px)',
+                            background:p.col, filter: isMobile ? 'none' : 'blur(1px)', // remove blur on mobile for perf
                         }}
                     />
                 ))}
             </div>
 
-            {/* ── Init Overlay ── */}
-            <AnimatePresence>
-                {initialized && !activated && (
-                    <InitOverlay key="init" onDone={handleInitDone} />
-                )}
-            </AnimatePresence>
+
 
             {/* ── Header ── */}
             <motion.div

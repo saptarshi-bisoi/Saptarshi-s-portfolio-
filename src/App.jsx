@@ -1,12 +1,5 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import ClassifiedFile from './components/ClassifiedFile'
-import ProjectsArchive from './components/ProjectsArchive'
-import EvidenceLocker from './components/EvidenceLocker'
-import InvestigationHistory from './components/InvestigationHistory'
-import Education from './components/Education'
-import FieldInvestigations from './components/FieldInvestigations'
-import CinematicCaseFiles from './components/CinematicCaseFiles'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import InvestigationAudio from './components/InvestigationAudio'
@@ -14,8 +7,21 @@ import SmoothScroll from './components/SmoothScroll'
 
 import MissionTracker from './components/MissionTracker'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import IntroSequence from './components/IntroSequence'
+
+// Basic lazy loading to reduce main bundle size and improve LCP/FCP
+const ClassifiedFile = lazy(() => import('./components/ClassifiedFile'))
+const ProjectsArchive = lazy(() => import('./components/ProjectsArchive'))
+const EvidenceLocker = lazy(() => import('./components/EvidenceLocker'))
+const InvestigationHistory = lazy(() => import('./components/InvestigationHistory'))
+const FieldInvestigations = lazy(() => import('./components/FieldInvestigations'))
+const CinematicCaseFiles = lazy(() => import('./components/CinematicCaseFiles'))
+const Education = lazy(() => import('./components/Education'))
+
+// Simple invisible placeholder to maintain layout structure during Suspense load
+const SectionFallback = () => <div style={{ minHeight: '100vh', background: 'var(--color-bg)' }} />
+
 export default function App() {
   const [showIntro, setShowIntro] = useState(() => {
     return sessionStorage.getItem('introPlayed') !== 'true'
@@ -42,13 +48,35 @@ export default function App() {
           >
             <Navbar />
             <Hero />
-            <ClassifiedFile />
-            <ProjectsArchive />
-            <EvidenceLocker />
-            <InvestigationHistory />
-            <FieldInvestigations />
-            <CinematicCaseFiles />
-            <Education />
+            
+            <Suspense fallback={<SectionFallback />}>
+                <ClassifiedFile />
+            </Suspense>
+            
+            <Suspense fallback={<SectionFallback />}>
+                <ProjectsArchive />
+            </Suspense>
+            
+            <Suspense fallback={<SectionFallback />}>
+                <EvidenceLocker />
+            </Suspense>
+            
+            <Suspense fallback={<SectionFallback />}>
+                <InvestigationHistory />
+            </Suspense>
+            
+            <Suspense fallback={<SectionFallback />}>
+                <FieldInvestigations />
+            </Suspense>
+            
+            <Suspense fallback={<SectionFallback />}>
+                <CinematicCaseFiles />
+            </Suspense>
+            
+            <Suspense fallback={<div style={{ minHeight: '50vh' }} />}>
+                <Education />
+            </Suspense>
+            
             <Contact />
             <Footer />
             <MissionTracker />

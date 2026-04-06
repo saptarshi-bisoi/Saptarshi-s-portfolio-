@@ -4,12 +4,12 @@ import { useRef, useState, useEffect } from 'react';
 const missions = [
     {
         id: 'M-01',
-        role: 'Technical Lead', 
+        role: 'Technical Lead',
         org: 'TechTribe ICVP',
-        period: 'Jul 2025 — Present', 
+        period: 'Jul 2025 — Present',
         type: 'Operation Leader',
         desc: "Directing all technical field operations for the tech club. Orchestrating hackathons, managing the developer syndicate, and engineering the club's digital footprint.",
-        status: 'ACTIVE', 
+        status: 'ACTIVE',
         statusColor: '#2b7a2b', // Faded green
         align: 'left',
         image: '/techtribeImg02.jpg',
@@ -18,12 +18,12 @@ const missions = [
     },
     {
         id: 'M-02',
-        role: 'Open Source Contributor', 
+        role: 'Open Source Contributor',
         org: 'Open Source Connect',
-        period: '2024 — Present', 
+        period: '2024 — Present',
         type: 'Global Informant',
         desc: 'Collaborating securely with developers across borders on open-source repositories. Recognized internationally as a NexFellow contributor.',
-        status: 'ACTIVE', 
+        status: 'ACTIVE',
         statusColor: '#2b7a2b',
         align: 'right',
         image: '/open_source_connect_Img03.jpg',
@@ -32,12 +32,12 @@ const missions = [
     },
     {
         id: 'M-03',
-        role: 'Web Development Intern', 
+        role: 'Web Development Intern',
         org: 'Ardent Computech Pvt Ltd',
-        period: 'May 2025 — Jun 2025', 
+        period: 'May 2025 — Jun 2025',
         type: 'Field Agent',
         desc: 'Investigated frontend anomalies, constructed responsive architectural layouts, and delivered classified production UI components under tight deadlines.',
-        status: 'VERIFIED', 
+        status: 'VERIFIED',
         statusColor: '#b8860b', // Faded gold
         align: 'left',
         image: '/CERTIFICATE_Ardent02_page-0001.jpg',
@@ -49,7 +49,7 @@ const missions = [
 export default function InvestigationHistory() {
     const containerRef = useRef(null);
     const [selectedImage, setSelectedImage] = useState(null);
-    
+
     // Track scroll progress within this specific section to draw the line
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -104,7 +104,7 @@ export default function InvestigationHistory() {
                             backdropFilter: 'blur(10px)'
                         }}
                     >
-                        <motion.img 
+                        <motion.img
                             initial={{ scale: 0.95, y: 20 }}
                             animate={{ scale: 1, y: 0 }}
                             exit={{ scale: 0.95, opacity: 0 }}
@@ -119,14 +119,14 @@ export default function InvestigationHistory() {
                                 borderRadius: '4px'
                             }}
                         />
-                        
+
                         {/* Close Indicator */}
-                        <div style={{ 
-                            position: 'absolute', 
-                            top: '2rem', 
-                            right: '2rem', 
-                            color: 'rgba(200, 164, 77, 0.8)', 
-                            cursor: 'pointer', 
+                        <div style={{
+                            position: 'absolute',
+                            top: '2rem',
+                            right: '2rem',
+                            color: 'rgba(200, 164, 77, 0.8)',
+                            cursor: 'pointer',
                             fontFamily: 'var(--font-mono)',
                             letterSpacing: '2px',
                             fontWeight: 'bold',
@@ -161,7 +161,7 @@ export default function InvestigationHistory() {
 
             <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
                 {/* Header Section */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
@@ -181,7 +181,7 @@ export default function InvestigationHistory() {
 
                 {/* Timeline Container */}
                 <div style={{ position: 'relative', maxWidth: '850px', margin: '0 auto' }}>
-                    
+
                     {/* The Central Line Background (Faint) */}
                     <div className="timeline-line-bg" style={{
                         position: 'absolute',
@@ -209,11 +209,11 @@ export default function InvestigationHistory() {
                     {/* Missions */}
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                         {missions.map((m, i) => (
-                            <TimelineItem 
-                                key={m.id} 
-                                mission={m} 
-                                index={i} 
-                                onImageClick={() => setSelectedImage(m.image)} 
+                            <TimelineItem
+                                key={m.id}
+                                mission={m}
+                                index={i}
+                                onImageClick={() => setSelectedImage(m.image)}
                             />
                         ))}
                     </div>
@@ -240,18 +240,18 @@ export default function InvestigationHistory() {
 // Sub-component for individual timeline entries structured exactly like physical case files
 function TimelineItem({ mission, index, onImageClick }) {
     const isLeft = mission.align === 'left';
-    
+
     return (
-        <div style={{ 
-            position: 'relative', 
-            display: 'flex', 
+        <div style={{
+            position: 'relative',
+            display: 'flex',
             justifyContent: isLeft ? 'flex-start' : 'flex-end',
             width: '100%',
             perspective: '1000px' // For subtle parallax/3D effect
         }} className="timeline-card-wrapper">
-            
+
             {/* The Glowing Timeline Node */}
-            <motion.div 
+            <motion.div
                 initial={{ scale: 0, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, margin: "-20% 0px -20% 0px" }}
@@ -286,7 +286,7 @@ function TimelineItem({ mission, index, onImageClick }) {
             </motion.div>
 
             {/* The Cinematic "Case File" Card */}
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, x: isLeft ? -40 : 40, rotateY: isLeft ? 5 : -5 }}
                 whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                 viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
@@ -315,7 +315,7 @@ function TimelineItem({ mission, index, onImageClick }) {
                 }} />
 
                 {/* Hover Glow Spotlight */}
-                <motion.div 
+                <motion.div
                     variants={{
                         hover: { opacity: 0.7, scale: 1.1 }
                     }}
@@ -330,9 +330,9 @@ function TimelineItem({ mission, index, onImageClick }) {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '2rem', position: 'relative', zIndex: 10 }}>
                     {/* Small Elegant Logo */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                        <div style={{ 
-                            width: '40px', height: '40px', 
-                            borderRadius: '4px', overflow: 'hidden', 
+                        <div style={{
+                            width: '40px', height: '40px',
+                            borderRadius: '4px', overflow: 'hidden',
                             backgroundColor: 'rgba(255,255,255,0.05)',
                             padding: '4px',
                             border: '1px solid rgba(255,255,255,0.1)'
@@ -348,9 +348,9 @@ function TimelineItem({ mission, index, onImageClick }) {
                             </h3>
                         </div>
                     </div>
-                    
+
                     {/* Status Stamp */}
-                    <div style={{ 
+                    <div style={{
                         border: `2px solid ${mission.statusColor}`,
                         padding: '4px 10px',
                         color: mission.statusColor,
@@ -370,13 +370,13 @@ function TimelineItem({ mission, index, onImageClick }) {
                 </div>
 
                 {/* MAIN EVIDENCE IMAGE (Physical Document) */}
-                <motion.div 
+                <motion.div
                     onClick={onImageClick}
                     variants={{
-                        hover: { 
+                        hover: {
                             rotate: 0, // Tilt correction 
-                            scale: 1.05, 
-                            y: -8, 
+                            scale: 1.05,
+                            y: -8,
                             boxShadow: '0 30px 50px rgba(0,0,0,0.9), 0 0 30px rgba(200,164,77,0.15)'
                         }
                     }}
@@ -406,13 +406,13 @@ function TimelineItem({ mission, index, onImageClick }) {
                         boxShadow: '0 4px 8px rgba(0,0,0,0.8), inset -3px -3px 5px rgba(0,0,0,0.4), inset 2px 2px 5px rgba(255,100,100,0.4)',
                         zIndex: 11
                     }}>
-                         {/* Pin highlight */}
+                        {/* Pin highlight */}
                         <div style={{ position: 'absolute', top: '2px', left: '3px', width: '3px', height: '3px', background: 'rgba(255,255,255,0.6)', borderRadius: '50%' }} />
                     </div>
 
                     <div style={{ position: 'relative', overflow: 'hidden', backgroundColor: '#000', borderRadius: '1px' }}>
-                        <motion.img 
-                            src={mission.image} 
+                        <motion.img
+                            src={mission.image}
                             alt="Visual Evidence"
                             variants={{
                                 hover: { filter: 'contrast(1.05) sepia(0) brightness(1)' } // Reveal details
@@ -424,11 +424,11 @@ function TimelineItem({ mission, index, onImageClick }) {
                                 display: 'block',
                                 filter: 'contrast(1.1) sepia(0.2) brightness(0.85) saturate(0.9)', // Cinematic color grade
                                 transition: 'filter 0.4s ease'
-                            }} 
+                            }}
                         />
                         {/* Image Inner Vignette */}
                         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7) 100%)', pointerEvents: 'none' }} />
-                        
+
                         {/* Expand Icon Overlay on Hover */}
                         <motion.div
                             variants={{
@@ -460,8 +460,8 @@ function TimelineItem({ mission, index, onImageClick }) {
                             position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
                             width: '100px', height: '100px', border: '1px solid rgba(180,40,40,0.15)', borderRadius: '50%', pointerEvents: 'none'
                         }}>
-                             <div style={{ position: 'absolute', top: '-10px', bottom: '-10px', left: '50%', width: '1px', background: 'rgba(180,40,40,0.15)' }} />
-                             <div style={{ position: 'absolute', left: '-10px', right: '-10px', top: '50%', height: '1px', background: 'rgba(180,40,40,0.15)' }} />
+                            <div style={{ position: 'absolute', top: '-10px', bottom: '-10px', left: '50%', width: '1px', background: 'rgba(180,40,40,0.15)' }} />
+                            <div style={{ position: 'absolute', left: '-10px', right: '-10px', top: '50%', height: '1px', background: 'rgba(180,40,40,0.15)' }} />
                         </div>
                     </div>
                 </motion.div>
@@ -479,14 +479,14 @@ function TimelineItem({ mission, index, onImageClick }) {
                     </div>
 
                     {/* Report Description */}
-                    <p style={{ 
-                        fontFamily: 'var(--font-mono)', 
-                        fontSize: '0.85rem', 
-                        lineHeight: 1.7, 
-                        color: 'rgba(232, 224, 208, 0.85)', 
-                        backgroundColor: 'rgba(0,0,0,0.4)', 
-                        padding: '1.5rem', 
-                        borderLeft: '2px solid rgba(200, 164, 77, 0.5)', 
+                    <p style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.85rem',
+                        lineHeight: 1.7,
+                        color: 'rgba(232, 224, 208, 0.85)',
+                        backgroundColor: 'rgba(0,0,0,0.4)',
+                        padding: '1.5rem',
+                        borderLeft: '2px solid rgba(200, 164, 77, 0.5)',
                         margin: 0,
                         textShadow: '0 1px 2px rgba(0,0,0,0.9)',
                         boxShadow: 'inset 0 0 20px rgba(0,0,0,0.5)'

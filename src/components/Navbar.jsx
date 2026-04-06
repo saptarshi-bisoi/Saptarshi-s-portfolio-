@@ -96,9 +96,9 @@ export default function Navbar() {
 
                 {/* Contact/Dispatch Button */}
                 <a href="#contact" className="show-mobile" style={{ textDecoration: 'none' }}>
-                  <button style={{ background: 'var(--color-gold)', color: 'var(--color-bg)', border: 'none', padding: '8px 16px', borderRadius: '100px', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 700, cursor: 'pointer' }}>
-                    DISPATCH
-                  </button>
+                    <button style={{ background: 'var(--color-gold)', color: 'var(--color-bg)', border: 'none', padding: '8px 16px', borderRadius: '100px', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', fontWeight: 700, cursor: 'pointer' }}>
+                        DISPATCH
+                    </button>
                 </a>
 
                 <button onClick={() => setOpen(!open)}
@@ -138,7 +138,7 @@ export default function Navbar() {
                                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', opacity: 0.4 }}>[{l.label.charAt(0)}]</span>
                             </a>
                         ))}
-                        
+
                         {/* Mobile Design Portfolio Link */}
                         <a href="https://saptarshi-designer.vercel.app/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
                             style={{
