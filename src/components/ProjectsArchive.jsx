@@ -57,6 +57,17 @@ const cases = [
         live: 'https://dice-of-wisdom.vercel.app/',
         rotation: -2,
     },
+    {
+        id: 'SB-006',
+        title: 'Custom Wedding Invitation Website',
+        tags: ['React', 'TypeScript', 'Interactive Animations', 'Service Workers', 'Performance Optimization'],
+        desc: 'A sophisticated custom wedding invitation website built with React and TypeScript, featuring interactive animations and responsive design. Implemented offline-first caching with service workers and automated image compression pipeline for optimal performance across all devices.',
+        status: 'SOLVED',
+        statusColor: '#2b7a2b',
+        github: 'https://github.com/saptarshi-bisoi/wedding_Template',
+        live: 'https://wedding-template-client.vercel.app/',
+        rotation: 1,
+    },
 ];
 
 const fadeIn = (delay = 0) => ({
